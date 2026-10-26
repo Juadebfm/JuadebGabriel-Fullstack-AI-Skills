@@ -19,7 +19,7 @@ Install all four skills. Describe what you want in normal language; the AI shoul
 
 Use the project installer to install all four skills and choose how to use them immediately afterward. Run a project install from the root folder of the project where you want to use the skills.
 
-The installer requires Node.js 18 or later and an internet connection to download the skills CLI and skill files.
+The installer requires Node.js 22.20 or later and an internet connection to download the skills CLI and skill files.
 
 ### Install in one project
 

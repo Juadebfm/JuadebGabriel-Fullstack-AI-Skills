@@ -19,7 +19,7 @@
     "LICENSE"
   ],
   "engines": {
-    "node": ">=18"
+    "node": ">=22.20.0"
   },
   "dependencies": {
     "cross-spawn": "7.0.6"

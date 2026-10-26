@@ -94,9 +94,11 @@ function parseArgs(args) {
 function installSkills(source, skillsArgs) {
   return new Promise((resolve, reject) => {
     const npx = process.platform === "win32" ? "npx.cmd" : "npx";
-    const child = spawn(npx, ["--yes", "skills", "add", source, "--skill", "*", ...skillsArgs], {
-      stdio: "inherit",
-    });
+    const child = spawn(
+      npx,
+      ["--yes", "--package=skills@latest", "--", "skills", "add", source, "--skill", "*", ...skillsArgs],
+      { stdio: "inherit" },
+    );
 
     child.once("error", reject);
     child.once("close", (code, signal) => {

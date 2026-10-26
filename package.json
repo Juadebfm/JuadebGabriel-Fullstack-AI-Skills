@@ -1,0 +1,27 @@
+{
+  "name": "juadeb-fullstack-ai-skills",
+  "version": "0.1.0",
+  "description": "Install beginner-friendly project-building AI skills and choose normal or advanced harness onboarding.",
+  "author": "Julius Adebowale Gabriel",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Juadebfm/JuadebGabriel-Fullstack-AI-Skills.git"
+  },
+  "bin": {
+    "juadeb-skills": "./bin/juadeb-skills.mjs"
+  },
+  "files": [
+    "bin/**",
+    "skills/**",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "cross-spawn": "7.0.6"
+  }
+}

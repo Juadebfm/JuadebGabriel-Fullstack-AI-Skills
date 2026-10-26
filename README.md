@@ -17,12 +17,14 @@ Install all four skills. Describe what you want in normal language; the AI shoul
 
 ## Install
 
-These skills use the [`skills` CLI](https://github.com/vercel-labs/skills). Commands below install the four skills for one agent. Run a project install from the root folder of the project where you want to use them.
+Use the project installer to install all four skills and choose how to use them immediately afterward. Run a project install from the root folder of the project where you want to use the skills.
+
+The installer requires Node.js 18 or later and an internet connection to download the skills CLI and skill files.
 
 ### Install in one project
 
 ```bash
-npx skills add Juadebfm/JuadebGabriel-Fullstack-AI-Skills --skill '*' -a codex
+npx --yes --package=github:Juadebfm/JuadebGabriel-Fullstack-AI-Skills -- juadeb-skills --agent codex
 ```
 
 Replace `codex` with the agent you use:
@@ -35,29 +37,39 @@ Replace `codex` with the agent you use:
 | GitHub Copilot Chat in VS Code | `github-copilot` |
 | Gemini CLI                     | `gemini-cli`     |
 
-To install for more than one agent, repeat `-a` with each name. For example:
+To install for more than one agent, repeat `--agent` with each name. For example:
 
 ```bash
-npx skills add Juadebfm/JuadebGabriel-Fullstack-AI-Skills --skill '*' -a codex -a cursor
+npx --yes --package=github:Juadebfm/JuadebGabriel-Fullstack-AI-Skills -- juadeb-skills --agent codex --agent cursor
 ```
+
+After the skills install, the CLI asks you to choose:
+
+1. **Use the normal AI skills** — describe your project task in your AI app.
+2. **Opt into Harness Engineering (advanced users only)** — the CLI prints a ready-to-copy first message for your AI. Paste it into the AI app working in the project. It asks the AI to explain the harness workflow and its authorship before inspecting the project and proposing a tailored plan.
+
+The installer cannot send a message directly into every supported AI app, so the advanced option requires you to paste the printed message into the AI chat. It starts a guided assessment and plan; it does not silently add project scripts or configuration. To choose a mode without the interactive question, pass `--mode normal` or `--mode harness`. Without an interactive terminal, normal mode is selected unless you pass `--mode harness`.
 
 ### Install for all your projects
 
-Use `-g` to install the skills for your personal account instead of just the current project:
+Use `--global` to install the skills for your personal account instead of just the current project:
 
 ```bash
-npx skills add Juadebfm/JuadebGabriel-Fullstack-AI-Skills --skill '*' -g -a codex
+npx --yes --package=github:Juadebfm/JuadebGabriel-Fullstack-AI-Skills -- juadeb-skills --global --agent codex
 ```
 
-Remove `-g` to install into the current project. Add `-y` to skip the installer's confirmation prompts; leaving it out lets you review the prompts interactively.
+Remove `--global` to install into the current project. Other options are passed to the official [`skills` CLI](https://github.com/vercel-labs/skills), including `--yes` if you want to skip its install confirmations. The normal-versus-harness choice is separate unless you pass `--mode`.
 
 ### Install from a local checkout
 
 You can try local changes before they are available on GitHub. From the project where you want to try the skills, run the command below with the path to your local copy:
 
 ```bash
-npx skills add /path/to/JuadebGabriel-Fullstack-AI-Skills --skill '*' -a codex
+npm install --prefix /path/to/JuadebGabriel-Fullstack-AI-Skills
+node /path/to/JuadebGabriel-Fullstack-AI-Skills/bin/juadeb-skills.mjs --source /path/to/JuadebGabriel-Fullstack-AI-Skills --agent codex
 ```
+
+If you install directly with `npx skills add`, the standard installer installs the skill files but does not ask the normal-versus-harness question. Use `juadeb-skills` when you want that choice as part of installation.
 
 ### Check or update an installation
 

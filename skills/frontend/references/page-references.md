@@ -4,6 +4,45 @@ These links point to public product pages and design guidance. Each note identif
 
 Do not copy page layouts, wording, logos, images, illustrations, or code. Identify one or two transferable ideas, then adapt them to the user's audience, content, brand, and stack. Link the exact reference when mentioning it.
 
+## Design discovery galleries
+
+These galleries help find a small number of relevant live examples. A gallery listing is a discovery source, not proof that an example is usable, accessible, fast, or suitable for the project. Open the selected page and inspect it when the host provides visual browser access; see [the live reference inspection guide](live-reference-inspection.md).
+
+### Awwwards
+
+- **URL:** <https://www.awwwards.com/websites/>
+- **Useful to study:** award-winning sites and browsable categories, tags, and technology labels. The directory includes Framer, GSAP, Three.js, WebGL, and 3D-related browsing options.
+- **Adapt carefully:** awards emphasize craft and originality; check whether a page's motion and visual complexity fit this product, its users, and their devices.
+- **Checked:** 2026-10-26.
+
+### Framer Gallery
+
+- **URL:** <https://www.framer.com/community/gallery/>
+- **Useful to study:** live sites built with Framer, browsable by areas such as business, software, ecommerce, portfolio, organizations, places, and health.
+- **Adapt carefully:** the gallery is useful for visual examples, but its pages are not automatically appropriate templates for a custom-coded project.
+- **Checked:** 2026-10-26.
+
+### Made With GSAP Showcase
+
+- **URL:** <https://madewithgsap.com/showcase>
+- **Useful to study:** live projects built with GSAP effects, including examples marked with website awards.
+- **Adapt carefully:** inspect whether motion communicates or supports the content. Keep essential information usable without animation and respect reduced-motion preferences.
+- **Checked:** 2026-10-26.
+
+### Mesh3d Gallery
+
+- **URL:** <https://mesh3d.gallery/>
+- **Useful to study:** curated interactive Three.js and real-time 3D website experiences, with links to the featured projects.
+- **Adapt carefully:** 3D effects can add loading, device, and accessibility costs. Check the experience on a smaller screen and keep a clear path to the page's main task.
+- **Checked:** 2026-10-26.
+
+### Three.js Examples
+
+- **URL:** <https://threejs.org/examples/>
+- **Useful to study:** official Three.js implementation demos and visual techniques.
+- **Adapt carefully:** these are technical examples, not a gallery of complete product websites. Use them to understand an effect, then make sure it serves the project's content and task.
+- **Checked:** 2026-10-26.
+
 ## Learning
 
 ### Duolingo home

@@ -26,9 +26,15 @@ When no design direction is established, ask a concise question informed by the 
 > - Bright and playful
 > - Compact and practical
 
-Use existing user references when available. If the user is unsure or requests inspiration, find a small number of relevant references and summarize the useful traits; do not turn reference research into a required, lengthy step. Avoid generic default layouts and interchangeable AI-looking pages. Make choices about hierarchy, typography, color, spacing, content, and interaction that fit this product. Do not rely on arbitrary bans on particular fonts, colors, or styles.
+Search the local design catalog tags for the product type, audience, and task; use `rg` when available or scan the headings if it is not. Select one or two relevant directions, then find up to two matching real examples in the page-reference library. Summarize only the useful traits in a sentence or two, link the pages, and use them to shape the two or three design choices you offer. Do not list the full catalog or make the user research it.
+
+The catalog contains starting points, not templates or rules. Adapt recommendations to the user's audience, project constraints, existing UI, and supplied Figma or screenshot. Do not copy a reference page's exact layout, copy, branding, assets, or code. A link is not proof that a design works for this project's users. If a reference may have changed or the user asks for current details, inspect the live page when browsing is available; otherwise say what is based on the saved note.
+
+Read [the product design catalog](references/design-catalog.md) for matching directions and [the real-page references](references/page-references.md) for examples. If neither is relevant, say so briefly and use repository and user-provided evidence instead. If browsing is available and the user requests more inspiration, find a small number of relevant, current references and explain the traits to adapt. Avoid generic default layouts and interchangeable AI-looking pages. Make choices about hierarchy, typography, color, spacing, content, and interaction that fit this product. Do not rely on arbitrary bans on particular fonts, colors, or styles.
 
 Before coding, make a compact design brief from evidence in the request or repository: audience and main task; one visual direction; type and color roles; layout and spacing approach; and one product-specific detail that makes the interface recognizable. Keep this to a few bullets. Do not generate a separate mockup unless requested; move from the approved direction to implementation to save time.
+
+For a new project or several connected screens, include a small design-system note in the plan. After the user approves the plan, save the agreed rules in `design-system/MASTER.md` if that file does not already exist. For a single small change, keep the brief in the conversation and follow the existing project system.
 
 Before handoff, check the page against this quick design review:
 

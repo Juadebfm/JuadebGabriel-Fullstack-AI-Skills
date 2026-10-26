@@ -6,12 +6,12 @@ You can use them with Claude Code, Codex, Cursor, GitHub Copilot Chat in VS Code
 
 ## The four areas
 
-| Area | What it helps with |
-| --- | --- |
+| Area                              | What it helps with                                                                                                                           |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | Project research and requirements | Turn an idea or brief into a clear plan, research important unknowns, inspect an existing project, and understand Figma screenshots or PDFs. |
-| Frontend | Plan and build pages and interactions, create a small design system, and check usability, accessibility, and frontend security. |
-| Backend | Plan APIs, system design, database structure, authentication, authorization, and backend security. |
-| Deployment | Choose hosting based on project purpose and budget, prepare the project, deploy with your permission, and check the live app. |
+| Frontend                          | Plan and build pages and interactions, create a small design system, and check usability, accessibility, and frontend security.              |
+| Backend                           | Plan APIs, system design, database structure, authentication, authorization, and backend security.                                           |
+| Deployment                        | Choose hosting based on project purpose and budget, prepare the project, deploy with your permission, and check the live app.                |
 
 Install all four skills. Describe what you want in normal language; the AI should inspect the repository and choose the relevant area. For an existing project, run the AI from that project's folder so it can inspect the files. You do not need to use MERN or know the skill names.
 
@@ -27,13 +27,13 @@ npx skills add Juadebfm/JuadebGabriel-Fullstack-AI-Skills --skill '*' -a codex
 
 Replace `codex` with the agent you use:
 
-| Agent | CLI name |
-| --- | --- |
-| Claude Code | `claude-code` |
-| Codex | `codex` |
-| Cursor | `cursor` |
+| Agent                          | CLI name         |
+| ------------------------------ | ---------------- |
+| Claude Code                    | `claude-code`    |
+| Codex                          | `codex`          |
+| Cursor                         | `cursor`         |
 | GitHub Copilot Chat in VS Code | `github-copilot` |
-| Gemini CLI | `gemini-cli` |
+| Gemini CLI                     | `gemini-cli`     |
 
 To install for more than one agent, repeat `-a` with each name. For example:
 
@@ -94,7 +94,7 @@ Use this area to explore an idea, understand an existing codebase, or turn a rou
 
 ### 2. Frontend and design system
 
-Use this area for pages, components, responsive layouts, visual design, and user experience. The AI should inspect your current interface first. It should ask a few focused questions about the audience, main action, and design direction, then build from the agreed direction without making you wait for a separate mockup.
+Use this area for pages, components, responsive layouts, visual design, and user experience. The AI should inspect your current interface first, then consult the built-in [product design catalog](skills/frontend/references/design-catalog.md) and [real-page reference library](skills/frontend/references/page-references.md) for relevant ideas. It should ask a few focused questions about the audience, main action, and design direction, then build from the agreed direction without making you wait for a separate mockup. These references guide original work; they are not templates to copy.
 
 **Build a page or feature**
 

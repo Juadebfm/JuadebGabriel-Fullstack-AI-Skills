@@ -7,12 +7,20 @@ import spawn from "cross-spawn";
 const defaultSource = "Juadebfm/JuadebGabriel-Fullstack-AI-Skills";
 const harnessPrompt = `I chose the advanced Harness Engineering option for this project.
 
-Before starting project work, briefly explain:
-1. What Harness Engineering mode will do for this project and how it differs from using the skills normally.
-2. How this skill set was built: four focused skill areas (project research and requirements, frontend, backend, and deployment), shared project-inspection and handoff guidance, and checks and approval points described in the skills. Be clear that this is a guided skill workflow, not a separate autonomous runtime or a hidden tool.
-3. Who created and maintains this skill set: Julius Adebowale Gabriel, as named in the repository's MIT license.
+In no more than three short sentences, explain:
+- This mode checks what the project already has and suggests a simple way to plan, build, and check the work. Ask before adding files, tools, or project settings.
+- It combines four skill guides (project planning, frontend, backend, and deployment) with shared instructions for inspecting the project, handing work between areas, and checking important steps. It is not a separate program or hidden tool.
+- The skill set was created by Julius Adebowale Gabriel and is credited in the repository's MIT license.
 
-Then inspect this project and its existing instructions. Briefly map its structure, classify it as frontend-only, backend-only, fullstack, or unclear, and identify the tools and checks that are actually available. Propose a small harness plan suited to this project. Keep the explanation beginner-friendly, distinguish existing capabilities from proposed additions, and ask before making project changes or taking consequential actions.`;
+Then inspect the current project and its instructions. First decide whether this is a new project or an existing app. If it is new or has no app code yet, say so plainly and help the user start with their idea. Do not call the project type "unclear" or ask whether the app code is somewhere else unless there is evidence that it exists elsewhere. If the user has not shared an idea, ask what they want to build before asking technical setup questions.
+
+Once the idea shows that both frontend and backend are needed, ask how to organize them only if the user has not already decided:
+1. One repository, one shared branch, separate frontend and backend folders (a monorepo).
+2. One repository with separate long-lived frontend and backend branches.
+3. Separate frontend and backend repositories.
+4. Not sure; recommend a setup after learning what the project needs.
+
+Keep the first reply under 120 words, use plain language, and avoid unexplained terms such as "harness" or "feedback loop." Recommend based on the user's needs, mention tradeoffs simply, and reuse any preference already stated. For an existing app, briefly describe its structure and checks that are actually available. Suggest one small next step. Ask before project changes or consequential actions.`;
 
 function printHelp() {
   stdout.write(`Juadeb AI Skills installer

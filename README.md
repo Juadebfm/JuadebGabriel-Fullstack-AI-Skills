@@ -46,7 +46,7 @@ npx --yes --package=github:Juadebfm/JuadebGabriel-Fullstack-AI-Skills -- juadeb-
 After the skills install, the CLI asks you to choose:
 
 1. **Use the normal AI skills** — describe your project task in your AI app.
-2. **Opt into Harness Engineering (advanced users only)** — the CLI prints a ready-to-copy first message for your AI. Paste it into the AI app working in the project. It asks the AI to explain the harness workflow and its authorship before inspecting the project and proposing a tailored plan.
+2. **Opt into Harness Engineering (advanced users only)** — the CLI prints a ready-to-copy first message for your AI. Paste it into the AI app working in the project. The AI briefly explains the mode, then checks whether this is a new project or an existing app. If it is new, it helps you start with your idea instead of asking where the app code is. It asks before adding project files, tools, or settings.
 
 The installer cannot send a message directly into every supported AI app, so the advanced option requires you to paste the printed message into the AI chat. It starts a guided assessment and plan; it does not silently add project scripts or configuration. To choose a mode without the interactive question, pass `--mode normal` or `--mode harness`. Without an interactive terminal, normal mode is selected unless you pass `--mode harness`.
 
@@ -91,6 +91,10 @@ Use this area to explore an idea, understand an existing codebase, or turn a rou
 **Starting a project**
 
 > I want to build a [type of app] for [who will use it]. The problem is [problem]. Help me define a small first version. Research only questions that could change the plan, ask me short questions with options when useful, and recommend a simple build order. Wait for my approval before building.
+
+**Choosing how frontend and backend code should be organized**
+
+> I am starting a project that needs screens for users and a backend for its data. Help me choose how to organize the code. Briefly explain: one repository with separate frontend and backend folders (a monorepo), one repository with separate frontend and backend branches, or separate repositories. If I am not sure, recommend one after learning what the app needs. Ask only questions that could change the choice.
 
 **Understanding an existing project**
 
@@ -155,7 +159,9 @@ Use this area to prepare or deploy a project. The AI should inspect the actual s
 ## What to expect from the AI
 
 - It should inspect project files and instructions before recommending changes to an existing project.
-- It should classify the project from evidence as frontend-only, backend-only, fullstack, or unclear, and say when it is unsure.
+- If the folder is new or has no app code, it should say that plainly and help you start with your project idea. It should not ask whether the code is somewhere else without evidence.
+- For an existing app, it should classify the project from evidence as frontend-only, backend-only, fullstack, or unclear. For a new project, it should use your idea to understand what parts are needed, and ask a short question if that is not clear yet.
+- If a new project needs both frontend and backend and the layout is undecided, it should explain the layout choices in simple language. One repository with separate folders is a monorepo; “not sure” is a valid answer.
 - It should ask enough short questions to understand the request, but skip questions already answered by your prompt or project files. You can answer in your own words or choose from options.
 - It should explain technical choices simply, recommend one approach, and mention alternatives when they help you decide.
 - It should build features to meet the agreed requirements and include security and quality checks while building, not rely on a later review to fix avoidable problems.

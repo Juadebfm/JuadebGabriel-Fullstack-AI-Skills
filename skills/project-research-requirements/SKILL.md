@@ -11,6 +11,8 @@ This skill is the main entry point when the user is beginning a project, shares 
 
 For an existing project, inspect the relevant instructions, README, folder structure, dependency manifests, and nearby code before asking questions. Preserve the project's existing conventions unless there is a concrete reason to change them.
 
+If the user says they are starting a new project, or the folder has no app code yet, treat it as a new project. Do not tell the user the project type is "unclear" or ask whether the app is in another folder unless the conversation or files suggest that. Say simply that there is no app code yet, then ask what they want to build if they have not said. Offer a couple of examples, such as a booking app, shop, or portfolio. Start with the project idea and requirements; do not begin with a technical setup checklist.
+
 Classify what the available evidence supports:
 
 - **Stage:** new, partly built, or established project.
@@ -25,6 +27,15 @@ Tell the user the classification in one brief sentence when it affects the plan.
 Use the supplied project brief, assignment, notes, examples, screenshot, or PDF as evidence. For Figma exports or screenshots, identify visible screens, content, controls, hierarchy, and likely flows. Do not claim hidden interaction, responsive, backend, or accessibility details are visible when they are not.
 
 Ask enough short, useful questions to clarify only decisions that materially affect scope, users, data, design, security, or delivery. Do not run a fixed questionnaire. Search the repository and supplied material first so the user does not need to repeat known facts.
+
+For a new project that needs both a frontend (the screens people use) and a backend (the server and data), ask how the user wants the code organized only if they have not already decided and the choice affects the plan. Explain the options briefly:
+
+- **One repository, one shared branch, separate frontend and backend folders** — a monorepo; both parts stay together.
+- **One repository, separate frontend and backend branches** — each part is developed on its own long-lived branch; explain that combining and checking the whole app takes extra coordination.
+- **Separate repositories** — frontend and backend live in different repositories.
+- **Not sure** — recommend an arrangement after learning what the app needs.
+
+Treat "monorepo" and "one branch with separate folders" as the same choice. Do not ask this when the user has already chosen a layout or an existing repository makes the layout clear. Explain that branch layout and folder layout are separate decisions if the user asks to combine them.
 
 When relevant, help the user improve the request. Briefly explain a concrete risk or ambiguity, then offer a safer or clearer version to choose from. Do not silently discard the user's goal.
 

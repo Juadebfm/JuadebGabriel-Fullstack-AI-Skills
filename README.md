@@ -71,14 +71,21 @@ node /path/to/JuadebGabriel-Fullstack-AI-Skills/bin/juadeb-skills.mjs --source /
 
 If you install directly with `npx skills add`, the standard installer installs the skill files but does not ask the normal-versus-harness question. Use `juadeb-skills` when you want that choice as part of installation.
 
-### Check or update an installation
+### Update skills you already installed
+
+Run this from the project folder where you installed the skills:
 
 ```bash
-npx skills list
-npx skills update
+npx --yes --package=github:Juadebfm/JuadebGabriel-Fullstack-AI-Skills -- juadeb-skills update
 ```
 
-The CLI chooses the correct skill folder for the selected agent. See its [current supported-agent list](https://github.com/vercel-labs/skills/blob/main/docs/agents.md) and [command guide](https://github.com/vercel-labs/skills/blob/main/docs/commands.md) for changes to agent names or installation options.
+This downloads the latest updater and asks the official skills CLI to update the skills in this project. If you installed them globally for your account, add `--global`:
+
+```bash
+npx --yes --package=github:Juadebfm/JuadebGabriel-Fullstack-AI-Skills -- juadeb-skills update --global
+```
+
+To check or list skills without updating, use `npx skills check` or `npx skills list`. See the official [skills CLI command guide](https://github.com/vercel-labs/skills/blob/main/docs/commands.md) for more update options.
 
 ## How to use the skills
 

@@ -26,20 +26,26 @@ function printHelp() {
   stdout.write(`Juadeb AI Skills installer
 
 Usage:
-  juadeb-skills [skills CLI options]
+  juadeb-skills [skills CLI install options]
+  juadeb-skills update [skills CLI update options]
 
 Examples:
   juadeb-skills --agent codex
   juadeb-skills --agent codex --agent cursor --global
   juadeb-skills --agent codex --mode harness
+  juadeb-skills update
+  juadeb-skills update --global
 
 Installer options:
   --mode normal|harness   Choose the onboarding option without prompting
   --source <repo-or-path> Install from a different GitHub repository or local checkout
   --help                  Show this help
 
-All other options are passed to the official skills CLI. If --mode is omitted,
-the installer asks whether to use the normal skills or advanced Harness Engineering.
+Update options are passed to the official skills CLI. Updates target this project
+by default; use --global for skills installed for your user account.
+
+All other install options are passed to the official skills CLI. If --mode is
+omitted, the installer asks whether to use the normal skills or advanced Harness Engineering.
 `);
 }
 
@@ -99,12 +105,12 @@ function parseArgs(args) {
   return { help: false, mode, source, skillsArgs };
 }
 
-function installSkills(source, skillsArgs) {
+function runSkillsCli(args) {
   return new Promise((resolve, reject) => {
     const npx = process.platform === "win32" ? "npx.cmd" : "npx";
     const child = spawn(
       npx,
-      ["--yes", "--package=skills@latest", "--", "skills", "add", source, "--skill", "*", ...skillsArgs],
+      ["--yes", "--package=skills@latest", "--", "skills", ...args],
       { stdio: "inherit" },
     );
 
@@ -117,6 +123,16 @@ function installSkills(source, skillsArgs) {
       reject(new Error(signal ? `Installation stopped (${signal}).` : `The skills CLI exited with code ${code ?? 1}.`));
     });
   });
+}
+
+function installSkills(source, skillsArgs) {
+  return runSkillsCli(["add", source, "--skill", "*", ...skillsArgs]);
+}
+
+function updateSkills(updateArgs) {
+  const hasScope = updateArgs.some((arg) => ["--global", "-g", "--project", "-p"].includes(arg));
+  const args = hasScope ? updateArgs : ["--project", ...updateArgs];
+  return runSkillsCli(["update", ...args]);
 }
 
 async function askMode() {
@@ -158,9 +174,21 @@ function printSelection(mode) {
 }
 
 async function main() {
+  const cliArgs = process.argv.slice(2);
+
+  if (cliArgs[0] === "update") {
+    try {
+      await updateSkills(cliArgs.slice(1));
+    } catch (error) {
+      stdout.write(`\n${error.message}\n`);
+      process.exitCode = 1;
+    }
+    return;
+  }
+
   let options;
   try {
-    options = parseArgs(process.argv.slice(2));
+    options = parseArgs(cliArgs);
   } catch (error) {
     stdout.write(`${error.message}\n\n`);
     printHelp();
